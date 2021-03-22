@@ -17,13 +17,13 @@ Vagrant.configure("2") do |config|
   #config.vm.network :private_network, type: "dhcp"
   config.vm.define "master" do |subconfig|
     subconfig.vm.hostname = "master"
-    subconfig.vm.network :private_network, ip: "172.16.0.10"
+    subconfig.vm.network :private_network, ip: "172.16.0.40"
   end
 
   (1..2).each do |i|
     config.vm.define "worker#{i}" do |subconfig|
       subconfig.vm.hostname = "worker#{i}"
-      subconfig.vm.network :private_network, ip: "172.16.0.#{i + 10}"
+      subconfig.vm.network :private_network, ip: "172.16.0.#{i + 40}"
     end
   end
 
